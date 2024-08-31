@@ -22,9 +22,9 @@
       }
 
       h1 {
-        color: #151a15; /* Darker green for headings */
+        color: #fbfff6; /* Darker green for headings */
         margin-bottom: 20px;
-        background-color: red;
+        text-shadow: rgb(160, 141, 194);
       }
 
       form {
@@ -70,6 +70,17 @@
       a:hover {
         text-decoration: underline;
       }
+      .circular-icon {
+    width: 60px; /* Adjust the size as needed */
+    height: 60px; /* Adjust the size as needed */
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image covers the circular area */
+    border: 2px solid #000; /* Optional: Add a border */
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 40px; /* Distance from the bottom */
+    right: 40px; /* Distance from the right */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
     </style>
   </head>
   <body>
@@ -88,6 +99,8 @@
       />
       <button type="submit">Submit</button>
     </form>
-    <a href="{{ url_for('chat') }}">Go to Chat</a>
+   <a href="{{ url_for('chat') }}">
+            <img src="OIP (1).jpg" alt="Go to Chat" class="circular-icon">
+        </a>
   </body>
 </html>
