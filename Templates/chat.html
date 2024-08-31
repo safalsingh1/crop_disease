@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat with Bot</title>
+  </head>
+  <body>
+    <h1>Chat with Bot</h1>
+    <div id="chatbox">
+      {% for message in chat_history %}
+      <p><strong>{{ message.sender }}:</strong> {{ message.text }}</p>
+      {% endfor %}
+    </div>
+    <form method="post">
+      <input
+        type="text"
+        name="question"
+        placeholder="Type your question here"
+        required
+      />
+      <button type="submit">Send</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Upload</a>
+    <a href="{{ url_for('map_view') }}">View Location on Map</a>
+  </body>
+</html>

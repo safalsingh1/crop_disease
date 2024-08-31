@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plant Disease Detection</title>
+  </head>
+  <body>
+    <h1>Upload an image of a plant leaf</h1>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file" required />
+      <input
+        type="text"
+        name="latitude"
+        placeholder="Enter latitude (optional)"
+      />
+      <input
+        type="text"
+        name="longitude"
+        placeholder="Enter longitude (optional)"
+      />
+      <button type="submit">Submit</button>
+    </form>
+    <a href="{{ url_for('chat') }}">Go to Chat</a>
+  </body>
+</html>

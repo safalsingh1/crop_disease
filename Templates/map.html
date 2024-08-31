@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location Map</title>
+    <script src="https://cdn.jsdelivr.net/npm/krutrim@latest/krutrim.min.js"></script>
+  </head>
+  <body>
+    <h1>Location Map</h1>
+    <div id="map" style="width: 100%; height: 500px"></div>
+    <script>
+      var map = new Krutrim.Map('map', {
+          center: [{{ latitude }}, {{ longitude }}],
+          zoom: 12
+      });
+
+      new Krutrim.Marker([{{ latitude }}, {{ longitude }}])
+          .addTo(map)
+          .bindPopup('You are here');
+    </script>
+    <a href="{{ url_for('index') }}">Back to Upload</a>
+    <a href="{{ url_for('chat') }}">Go to Chat</a>
+  </body>
+</html>

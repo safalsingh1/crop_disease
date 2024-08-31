@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+  </head>
+  <body>
+    <h1>Prediction Result</h1>
+    <p>Disease Name: {{ disease_name }}</p>
+    <p>Information: {{ disease_info }}</p>
+    <a href="{{ url_for('map_view') }}">View Location on Map</a>
+    <a href="{{ url_for('chat') }}">Go to Chat</a>
+    <a href="{{ url_for('index') }}">Back to Upload</a>
+  </body>
+</html>
