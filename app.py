@@ -4,12 +4,12 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
 import google.generativeai as genai
-from werkzeug.utils import secure_filename  # Import secure_filename
+from werkzeug.utils import secure_filename  
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# Load the plant disease model
+
 plant_disease_model = load_model('plant_disease_model.h5')
 
 disease_classes = [
@@ -29,10 +29,10 @@ disease_classes = [
     "Tomato___healthy"
 ]
 
-# Set up your Gemini API key
+
 genai.configure(api_key=os.environ["API_KEY"])
 
-# Initialize the Gemini model
+
 gemini_model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 def allowed_file(filename):
@@ -91,13 +91,13 @@ def index():
             filepath = os.path.join('uploads', filename)
             file.save(filepath)
             disease_name = predict_disease_name(filepath)
-            os.remove(filepath)  # Clean up the uploaded file
+            os.remove(filepath) 
 
-            # Get additional info and prevention tips using Gemini API
+            
             disease_info = get_disease_info(disease_name)
-            # Save the disease name in session for use in the chat
+            
             session['disease_name'] = disease_name
-            session['chat_history'] = []  # Clear previous chat history
+            session['chat_history'] = []  
             return render_template('result.html', disease_name=disease_name, disease_info=disease_info)
         else:
             flash('Allowed file types are png, jpg, jpeg')
@@ -110,13 +110,13 @@ def chat():
         user_question = request.form['question']
         disease_name = session.get('disease_name', '')
         
-        # Get the chat history (if stored in the session)
+        
         chat_history = session.get('chat_history', [])
         
-        # Append the user's question to the chat history
+        
         chat_history.append({'sender': 'user', 'text': user_question})
         
-        # Generate response from Gemini API
+        
         try:
             prompt = f"You are talking about {disease_name}. {user_question}"
             response = gemini_model.generate_content(prompt)
@@ -124,15 +124,15 @@ def chat():
         except Exception as e:
             answer = f"Error fetching data from Gemini API: {str(e)}"
         
-        # Append the system's response to the chat history
+        
         chat_history.append({'sender': 'system', 'text': answer})
         
-        # Store the updated chat history in the session
+        
         session['chat_history'] = chat_history
         
         return render_template('chat.html', chat_history=chat_history, disease_name=disease_name)
     else:
-        # For GET requests, just render the chat page with an empty history
+        
         return render_template('chat.html', chat_history=[], disease_name=session.get('disease_name', ''))
 
 if __name__ == '__main__':
