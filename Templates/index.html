@@ -4,6 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant Disease Detection</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e8f5e9; /* Light green background */
+        color: #2e7d32; /* Dark green text */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url("crop.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      h1 {
+        color: #151a15; /* Darker green for headings */
+        margin-bottom: 20px;
+        background-color: red;
+      }
+
+      form {
+        background-color: #a5d6a7; /* Soft green form background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      input[type="file"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #66bb6a; /* Border matching theme */
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="text"] {
+        background-color: #e8f5e9; /* Lighter background for text inputs */
+      }
+
+      button {
+        background-color: #2e7d32; /* Dark green button */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #1b5e20; /* Darker green on hover */
+      }
+
+      a {
+        margin-top: 20px;
+        color: #388e3c; /* Green color for link */
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <h1>Upload an image of a plant leaf</h1>
