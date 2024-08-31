@@ -4,11 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Location Map</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/krutrim@latest/krutrim.min.js"></script>
+    <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin: 20px 0;
+        color: #2e7d32; /* Dark green */
+      }
+
+      #map {
+        width: 100%;
+        height: 500px;
+        border: 2px solid #c8e6c9; /* Light green border */
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        background-color: #388e3c; /* Medium green */
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin: 5px;
+        transition: background-color 0.3s;
+      }
+
+      a:hover {
+        background-color: #2e7d32; /* Darker green on hover */
+      }
+    </style>
   </head>
   <body>
     <h1>Location Map</h1>
-    <div id="map" style="width: 100%; height: 500px"></div>
+    <h3>Upcoming</h3>
+    <div id="map"></div>
     <script>
       var map = new Krutrim.Map('map', {
           center: [{{ latitude }}, {{ longitude }}],
@@ -19,7 +61,8 @@
           .addTo(map)
           .bindPopup('You are here');
     </script>
-    <a href="{{ url_for('index') }}">Back to Upload</a>
-    <a href="{{ url_for('chat') }}">Go to Chat</a>
+    <a href="index.html">Back to Upload</a>
+    <a href="chat.html">Go to Chat</a>
   </body>
 </html>
+

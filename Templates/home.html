@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmseva</title>
+    <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      .container {
+        width: 80%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      /* Navigation Bar */
+      nav {
+        background-color: #2e7d32; /* Dark green */
+        color: white;
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .nav-links a:hover {
+        background-color: #1b5e20; /* Darker green on hover */
+      }
+
+      /* Hero Section */
+      .hero {
+        background: url('Background image.jpg') no-repeat center center/cover;
+        height: 100vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 600px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        text-shadow: 3px 3px rgb(177, 103, 202);
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-bottom: 40px;
+      }
+
+      .cta-button {
+        background-color: #388e3c; /* Medium green */
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .cta-button:hover {
+        background-color: #2e7d32; /* Darker green on hover */
+      }
+
+      /* About Section */
+      .about {
+        padding: 60px 0;
+        background-color: white;
+        color: #333;
+        text-align: center;
+      }
+
+      .about h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .about p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 60px 0;
+        background-color: #e8f5e9; /* Light green */
+        color: #333;
+        text-align: center;
+      }
+
+      .services h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+      }
+
+      .service-items {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .service-item {
+        background-color: white;
+        border: 1px solid #c8e6c9;
+        border-radius: 10px;
+        padding: 20px;
+        width: 30%;
+        min-width: 280px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-item h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .service-item p {
+        font-size: 16px;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 60px 0;
+        background-color: white;
+        color: #333;
+        text-align: center;
+      }
+
+      .contact h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .contact-info {
+        list-style: none;
+        padding: 0;
+      }
+
+      .contact-info li {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #2e7d32; /* Dark green */
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      footer p {
+        margin: 0;
+      }
+    .service-items a {
+    color: #008080;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: rgb(11, 140, 231);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+ 
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="container">
+        <div class="logo">
+            <!-- <img src="logo.png" width="200px" height="100px"> -->
+             FARMSEVA
+            </div>
+        <ul class="nav-links">
+          <li><a href="#home" style="color: white">Home</a></li>
+          <li><a href="#about" style="color: white">About</a></li>
+          <li><a href="#services" style="color:white">Services</a></li>
+          <li><a href="#contact" style="color:white">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+      <div class="hero-content">
+        <h1>Welcome to FARMSEVA</h1>
+        <p>Transforming Agriculture,Empowering Farmers</p>
+        <a href="#services" class="cta-button" style="color:white">Learn More</a>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+            "Our website helps farmers and gardeners detect crop diseases quickly and easily. Just upload a picture of your plant's leaf, and our system will identify any diseases. You can also chat with our bot to get advice on plant care, disease prevention, and more. We're here to support you in keeping your crops healthy and thriving."
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-items" id="services1">
+          <div class="service-item">
+            <h3>Crop Disease Detection</h3>
+            <p>Know your crop disease</p>
+            <a href="index.html">Upload Image</a>
+          </div>
+          <div class="service-item">
+            <h3>Chat with Bot</h3>
+            <p>Discuss about the disease</p>
+            <a href="chat.html">Chat with Bot</a>
+          </div>
+          <div class="service-item">
+            <h3>Mapping(upcoming)</h3>
+            <p>Get prior notification about disease outbreak in your area</p>
+            <a href="map.html">Mapping</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us through the following methods.</p>
+        <ul class="contact-info">
+          <li>Email: info@mywebsite.com</li>
+          <li>Phone: +123 456 7890</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
