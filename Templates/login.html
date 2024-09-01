@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .container input, 
+        .container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        .container .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+            color: #007BFF;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="signup-section">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <label for="username">Username</label>
+        <input type="text" id="signup-username" name="username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="signup-password" name="password" required>
+        
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="signup-mobile" name="mobile" pattern="[0-9]{10}" required>
+
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="in">India</option>
+            <!-- Add more countries as needed -->
+        </select>
+        
+        <label for="state">State</label>
+        <select id="state" name="state" required>
+            <option value="">Select State</option>
+        </select>
+        
+        <label for="city">City</label>
+        <select id="city" name="city" required>
+            <option value="">Select City</option>
+        </select>
+
+        <button type="submit">Sign Up</button >
+    </form>
+    <div class="toggle-link" onclick="showLogin()">Already have an account? Login</div>
+</div>
+
+<div class="container" id="login-section" style="display: none;">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="login-username" name="username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="login-password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <div class="toggle-link" onclick="showSignup()">Don't have an account? Sign Up</div>
+</div>
+
+<script>
+    const countryStateCityData = {
+        in: {
+            states: {
+                "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur"],
+                "Arunachal Pradesh": ["Itanagar", "Tawang", "Ziro"],
+                "Assam": ["Guwahati", "Dibrugarh", "Jorhat"],
+                "Bihar": ["Patna", "Gaya", "Bhagalpur"],
+                "Chhattisgarh": ["Raipur", "Bilaspur", "Durg"],
+                "Goa": ["Panaji", "Margao", "Vasco da Gama"],
+                "Gujarat": ["Ahmedabad", "Surat", "Vadodara"],
+                "Haryana": ["Gurugram", "Faridabad", "Panipat"],
+                "Himachal Pradesh": ["Shimla", "Manali", "Dharamshala"],
+                "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad"],
+                "Karnataka": ["Bangalore", "Mysore", "Hubli"],
+                "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode"],
+                "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior"],
+                "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
+                "Manipur": ["Imphal", "Thoubal", "Churachandpur"],
+                "Meghalaya": ["Shillong", "Tura", "Cherrapunji"],
+                "Mizoram": ["Aizawl", "Lunglei", "Champhai"],
+                "Nagaland": ["Kohima", "Dimapur", "Mokokchung"],
+                "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela"],
+                "Punjab": ["Chandigarh", "Ludhiana", "Amritsar"],
+                "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur"],
+                "Sikkim": ["Gangtok", "Pelling", "Yuksom"],
+                "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai"],
+                "Telangana": ["Hyderabad", "Warangal", "Nizamabad"],
+                "Tripura": ["Agartala", "Udaipur", "Dharmanagar"],
+                "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi"],
+                "Uttarakhand": ["Dehradun", "Haridwar", "Nainital"],
+                "West Bengal": ["Kolkata", "Darjeeling", "Siliguri"],
+
+                // Union Territories
+                "Andaman and Nicobar Islands": ["Port Blair"],
+                "Chandigarh": ["Chandigarh"],
+                "Dadra and Nagar Haveli and Daman and Diu": ["Daman", "Diu", "Silvassa"],
+                "Lakshadweep": ["Kavaratti"],
+                "Delhi": ["New Delhi", "Delhi"],
+                "Puducherry": ["Puducherry", "Karaikal", "Mahe"],
+                "Ladakh": ["Leh", "Kargil"],
+                "Jammu and Kashmir": ["Srinagar", "Jammu"]
+            }
+        }
+    };
+
+    // Event listener for country selection
+    document.getElementById('country').addEventListener('change', function() {
+        const country = this.value;
+        const states = countryStateCityData[country]?.states;
+        const stateSelect = document.getElementById('state');
+        const citySelect = document.getElementById('city');
+
+        stateSelect.innerHTML = `<option value="">Select State</option>`;
+        citySelect.innerHTML = `<option value="">Select City</option>`; 
+        
+        if (states) {
+            for (const state in states) {
+                stateSelect.innerHTML += `<option value="${state}">${state}</option>`;
+            }
+        }
+    });
+
+    // Event listener for state selection
+    document.getElementById('state').addEventListener('change', function() {
+        const country = document.getElementById('country').value;
+        const state = this.value;
+        const cities = countryStateCityData[country]?.states[state];
+        const citySelect = document.getElementById('city');
+
+        citySelect.innerHTML = `<option value="">Select City</option>`; // Reset city select
+
+        if (cities) {
+            for (const city of cities) {
+                citySelect.innerHTML += `<option value="${city}">${city}</option>`;
+            }
+        }
+    });
+
+    // Toggle between sign-up and login forms
+    function showSignup() {
+        document.getElementById('signup-section').style.display = 'block';
+        document.getElementById('login-section').style.display = 'none';
+    }
+
+    function showLogin() {
+        document.getElementById('signup-section').style.display = 'none';
+        document.getElementById('login-section').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
