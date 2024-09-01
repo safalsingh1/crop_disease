@@ -165,8 +165,8 @@
         const citySelect = document.getElementById('city');
 
         stateSelect.innerHTML = `<option value="">Select State</option>`;
-        citySelect.innerHTML = `<option value="">Select City</option>`; // Reset city select
-
+        citySelect.innerHTML = `<option value="">Select City</option>`; 
+        
         if (states) {
             for (const state in states) {
                 stateSelect.innerHTML += `<option value="${state}">${state}</option>`;

@@ -207,6 +207,51 @@
     background-color: transparent;
     text-decoration: underline;
   }
+  .circular-icon {
+    width: 60px; /* Adjust the size as needed */
+    height: 60px; /* Adjust the size as needed */
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image covers the circular area */
+    border: 2px solid #000; /* Optional: Add a border */
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 40px; /* Distance from the bottom */
+    right: 40px; /* Distance from the right */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+ /* Styling for the sliding alert */
+ .custom-alert {
+            align-items: center;
+            margin-top: 40px;
+            height: 30px;
+            width: 25px;
+            border-radius: 20px;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.737); 
+            color: rgb(23, 35, 28);
+            text-align: top;
+            border-bottom: 2px solid #070807;
+            display: none; /* Hidden by default */
+            z-index: 1000; /* Ensures the alert is above other content */
+            animation: slideDown 0.5s ease-out;
+        }
+
+        /* Animation for sliding down */
+        @keyframes slideDown {
+            from {
+                transform: translate(-50%, -100%);
+            }
+            to {
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* Additional styling for the alert button */
+      
  
     </style>
   </head>
@@ -232,7 +277,7 @@
       <div class="hero-content">
         <h1>Welcome to FARMSEVA</h1>
         <p>Transforming Agriculture,Empowering Farmers</p>
-        <a href="#services" class="cta-button" style="color:white">Learn More</a>
+        <a href="login.html" class="cta-button" style="color:white">Sign Up</a>
       </div>
     </header>
 
@@ -288,5 +333,41 @@
         <p>&copy; 2024 My Website. All rights reserved.</p>
       </div>
     </footer>
-  </body>
+    <a href="chat.html" id="highlightedLink">
+      <img src="OIP (1).jpg" alt="Go to Chat" class="circular-icon">
+  </a>
+  
+  <div class="custom-alert" id="customAlert">
+      <p>Do You Have Any Question ? Ask with AI Powered CHATBOT...</p>
+      
+  </div>
+  
+  <script>
+      // Function to show the custom alert
+      function showAlert() {
+          document.getElementById("customAlert").style.display = "block";
+      }
+  
+      // Function to hide the custom alert
+      function closeAlert() {
+          document.getElementById("customAlert").style.display = "none";
+      }
+  
+      // Show the alert when the page loads
+      window.onload = function() {
+          showAlert();
+      };
+  
+      // Hide the alert when clicking anywhere on the page
+      document.addEventListener('click', function(event) {
+          // Check if the click is not on the alert or its button
+          if (!document.getElementById("customAlert").contains(event.target) &&
+              !event.target.matches('button')) {
+              closeAlert();
+          }
+      });
+  </script>
+
+
+</body>
 </html>
