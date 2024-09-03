@@ -4,6 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat with Bot</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f8e9; /* Light green background */
+        color: #2e7d32; /* Dark green text */
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        color: #1b5e20; /* Darker green for headings */
+        margin-bottom: 20px;
+      }
+
+      #chatbox {
+        width: 100%;
+        max-width: 600px;
+        height: 400px;
+        overflow-y: scroll;
+        background-color: #ffffff;
+        border: 1px solid #c8e6c9; /* Soft green border */
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      #chatbox p {
+        margin: 10px 0;
+      }
+
+      #chatbox p strong {
+        color: #388e3c; /* Green color for sender name */
+      }
+
+      form {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #66bb6a; /* Border matching theme */
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #2e7d32; /* Dark green button */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 200px;
+      }
+
+      button:hover {
+        background-color: #1b5e20; /* Darker green on hover */
+      }
+
+      a {
+        margin-top: 20px;
+        color: #388e3c; /* Green color for links */
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <h1>Chat with Bot</h1>
@@ -21,7 +101,7 @@
       />
       <button type="submit">Send</button>
     </form>
-    <a href="{{ url_for('index') }}">Back to Upload</a>
-    <a href="{{ url_for('map_view') }}">View Location on Map</a>
+    <a href="index.html" ><b>Back to Upload</b></a>
+    <a href="map.html"><b>View Location on Map</b></a>
   </body>
 </html>

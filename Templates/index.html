@@ -4,6 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant Disease Detection</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e8f5e9; /* Light green background */
+        color: #2e7d32; /* Dark green text */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url("crop.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      h1 {
+        color: #fbfff6; /* Darker green for headings */
+        margin-bottom: 20px;
+        text-shadow: rgb(160, 141, 194);
+      }
+
+      form {
+        background-color: #a5d6a7; /* Soft green form background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      input[type="file"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #66bb6a; /* Border matching theme */
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="text"] {
+        background-color: #e8f5e9; /* Lighter background for text inputs */
+      }
+
+      button {
+        background-color: #2e7d32; /* Dark green button */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #1b5e20; /* Darker green on hover */
+      }
+
+      a {
+        margin-top: 20px;
+        color: #388e3c; /* Green color for link */
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+      .circular-icon {
+    width: 60px; /* Adjust the size as needed */
+    height: 60px; /* Adjust the size as needed */
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image covers the circular area */
+    border: 2px solid #000; /* Optional: Add a border */
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 40px; /* Distance from the bottom */
+    right: 40px; /* Distance from the right */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+    </style>
   </head>
   <body>
     <h1>Upload an image of a plant leaf</h1>
@@ -21,6 +99,8 @@
       />
       <button type="submit">Submit</button>
     </form>
-    <a href="{{ url_for('chat') }}">Go to Chat</a>
+   <a href="chat.html">
+            <img src="OIP (1).jpg" alt="Go to Chat" class="circular-icon">
+        </a>
   </body>
 </html>

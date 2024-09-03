@@ -4,10 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prediction Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e8f5e9; /* Light green background */
+        color: #2e7d32; /* Dark green text */
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        color: #1b5e20; /* Darker green for headings */
+        margin-bottom: 20px;
+      }
+
+      p {
+        background-color: #ffffff;
+        border: 1px solid #c8e6c9; /* Soft green border */
+        border-radius: 10px;
+        padding: 15px;
+        width: 100%;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+
+      p strong {
+        color: #388e3c; /* Highlight disease name */
+      }
+
+      a {
+        display: inline-block;
+        background-color: #2e7d32; /* Dark green button-like links */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin: 5px;
+        transition: background-color 0.3s;
+      }
+
+      a:hover {
+        background-color: #1b5e20; /* Darker green on hover */
+      }
+    </style>
   </head>
   <body>
     <h1>Prediction Result</h1>
-    <p>Disease Name: {{ disease_name }}</p>
+    <p>Disease Name: <strong>{{ disease_name }}</strong></p>
     <p>Information: {{ disease_info }}</p>
     <a href="{{ url_for('map_view') }}">View Location on Map</a>
     <a href="{{ url_for('chat') }}">Go to Chat</a>
